@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="stock_warehouse_access_user_form" model="ir.ui.view">
+        <field name="name">Warehouse Access User Form View</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <group name="messaging" position="after">
+                <group name="warehouse_access" string="Warehouse Access"
+                       groups="stock.group_stock_multi_warehouses">
+                    <field name="allowed_warehouse_ids"
+                           domain="[('company_id', 'in', company_ids)]"
+                           groups="stock.group_stock_multi_warehouses"
+                           widget="many2many_tags"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
