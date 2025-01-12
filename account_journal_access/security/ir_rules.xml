@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="account_journal_access_user" model="ir.rule">
+        <field name="name">Account Journal Access: User</field>
+        <field name="model_id" ref="account.model_account_journal"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[('id', 'in', user.allowed_journal_ids.ids)]</field>
+        <field name="groups" eval="[Command.link(ref('account.group_account_invoice')), Command.link(ref('account.group_account_basic'))]"/>
+    </record>
+
+    <record id="warehouse_access_admin" model="ir.rule">
+        <field name="name">Account Journal Access: Admin</field>
+        <field name="model_id" ref="account.model_account_journal"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[Command.link(ref('account.group_account_manager'))]"/>
+    </record>
+</odoo>
