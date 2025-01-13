@@ -5,7 +5,7 @@
 
 {
     'name': 'Warehouse Access Rules',
-    'version': '18.0.1.0.0',
+    'version': '16.0.1.0.0',
     'summary': 'Limit access to warehouses',
     'sequence': 50,
     'description': """
