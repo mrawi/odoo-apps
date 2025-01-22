@@ -5,7 +5,7 @@
 
 {
     'name': 'Warehouse Access Rules',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1.0.1',
     'license': 'OPL-1',
     'summary': 'Limit access to warehouses',
     'sequence': 50,
@@ -20,8 +20,9 @@ Allow access to warehouses on user level.
     'images': [],
     'depends': ['stock'],
     'data': [
-        'security/ir_rules.xml',
         'views/res_users_views.xml',
+        'views/stock_warehouse_views.xml',
+        'security/ir_rules.xml',
     ],
     'demo': [
     ],
