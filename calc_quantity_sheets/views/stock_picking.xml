@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_picking_form_sheets" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.website.sale.stock</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='operations']/field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']" position="before">
+                <field name="sheet_num"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+
+
+
+        <!-- Stock Report View -->
+        <record model="ir.ui.view" id="product_product_stock_tree_inherit_calc_sheets">
+            <field name="name">product_product_stock_tree_inherit_calc_sheets</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="stock.product_product_stock_tree"/>
+            <field name="arch" type="xml">
+                <field name="qty_available" position="before">
+                    <field name="sheet_num"/>
+                </field>
+            </field>
+        </record>
+
+
+</odoo>
