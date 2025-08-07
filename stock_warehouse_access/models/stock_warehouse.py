@@ -10,8 +10,7 @@ class StockWarehouse(models.Model):
     _inherit = 'stock.warehouse'
 
     allowed_user_ids = fields.Many2many(string='Allowed Users',
-                                        comodel_name='stock.warehouse',
+                                        comodel_name='res.users',
                                         relation='stock_warehouse_res_users_rel',
                                         column1='warehouse_id',
-                                        column2='user_id',
-                                        check_company=True)
+                                        column2='user_id')

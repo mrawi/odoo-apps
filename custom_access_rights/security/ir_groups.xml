@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- See the LICENSE file for full copyright and licensing details. -->
+<odoo>
+    <record id="detailed_access_rights" model="ir.module.category">
+        <field name="name">Detailed Access Rights</field>
+        <field name="description">Detailed Access Rights</field>
+    </record>
+
+    <record id="detailed_access_group_product" model="res.groups">
+        <field name="name">Products</field>
+        <field name="comment">Only users in this group are allowed to create new products or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_product_categ" model="res.groups">
+        <field name="name">Product Categories</field>
+        <field name="comment">Only users in this group are allowed to create new product categories or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_product_attribute" model="res.groups">
+        <field name="name">Product Attributes</field>
+        <field name="comment">Only users in this group are allowed to create new product attributes or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_product_packaging" model="res.groups">
+        <field name="name">Product Packaging</field>
+        <field name="comment">Only users in this group are allowed to create new product packagings or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_pricelist" model="res.groups">
+        <field name="name">Price Lists</field>
+        <field name="comment">Only users in this group are allowed to create new price lists or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_uom" model="res.groups">
+        <field name="name">Units of Measure</field>
+        <field name="comment">Only users in this group are allowed to create new units of measure or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_contact_tag" model="res.groups">
+        <field name="name">Contact Tags &amp; Titles</field>
+        <field name="comment">Only users in this group are allowed to create new contact tags or update existing ones.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_contact_ref" model="res.groups">
+        <field name="name">Edit Contact Reference</field>
+        <field name="comment">Only users in this group are allowed to update contact reference numbers.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_sale_price" model="res.groups">
+        <field name="name">Edit Sale Unit Price</field>
+        <field name="comment">Only users in this group are allowed to change sale price on contracts.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="detailed_access_group_cost" model="res.groups">
+        <field name="name">View Product Costs/Profit Margins</field>
+        <field name="comment">Only users in this group are allowed to see cost, purchase, and profit margins on sale orders and products.</field>
+        <field name="category_id" ref="custom_access_rights.detailed_access_rights"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="base.user_root" model="res.users">
+        <field name="groups_id" eval="[(4, ref('detailed_access_group_product')), (4, ref('detailed_access_group_product_categ')), (4, ref('detailed_access_group_product_attribute')), (4, ref('detailed_access_group_product_packaging')), (4, ref('detailed_access_group_pricelist')), (4, ref('detailed_access_group_uom')), (4, ref('detailed_access_group_contact_tag')), (4, ref('detailed_access_group_contact_ref')), (4, ref('detailed_access_group_cost')), (4, ref('detailed_access_group_sale_price')),]"/>
+    </record>
+    <record id="base.user_admin" model="res.users">
+        <field name="groups_id" eval="[(4, ref('detailed_access_group_product')), (4, ref('detailed_access_group_product_categ')), (4, ref('detailed_access_group_product_attribute')), (4, ref('detailed_access_group_product_packaging')), (4, ref('detailed_access_group_pricelist')), (4, ref('detailed_access_group_uom')), (4, ref('detailed_access_group_contact_tag')), (4, ref('detailed_access_group_contact_ref')), (4, ref('detailed_access_group_cost')), (4, ref('detailed_access_group_sale_price')),]"/>
+    </record>
+
+</odoo>

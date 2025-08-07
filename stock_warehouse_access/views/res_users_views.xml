@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-    <record id="stock_warehouse_access_user_form" model="ir.ui.view">
-        <field name="name">Warehouse Access User Form View</field>
+    <record id="res_user_stock_warehouse_access_form" model="ir.ui.view">
+        <field name="name">User Warehouse Access Form View</field>
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">

@@ -13,8 +13,7 @@ class ResUsers(models.Model):
                                              comodel_name='stock.warehouse',
                                              relation='stock_warehouse_res_users_rel',
                                              column1='user_id',
-                                             column2='warehouse_id',
-                                             check_company=True)
+                                             column2='warehouse_id')
 
     def _get_default_warehouse_id(self):
         if self.allowed_warehouse_ids:

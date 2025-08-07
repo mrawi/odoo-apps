@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_report_list" model="ir.ui.view">
+        <field name="name">stock report</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom_qty']" position="before">
+                <field name="sheet_num" />
+            </xpath>
+
+        </field>
+    </record>
+    </data>
+</odoo>

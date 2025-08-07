@@ -4,13 +4,13 @@
 # ******************************************************************************
 
 {
-    'name': 'Account Journal Rules',
-    'version': '17.0.1.0.0',
+    'name': 'Account Journal Access Rules',
+    'version': '16.0.1.0.0',
     'license': 'OPL-1',
     'summary': 'Limit access to journals',
     'sequence': 50,
     'description': """
-Allow access to journals on user level.
+Allow access to journals and journal entries and items on user level.
     """,
     'category': 'Accounting/Accounting',
     'author': 'Mustafa Rawi',

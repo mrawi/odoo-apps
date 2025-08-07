@@ -9,7 +9,7 @@
         <field name="perm_create" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">[('id', 'in', user.allowed_warehouse_ids.ids)]</field>
+        <field name="domain_force">[('allowed_user_ids', 'in', user.id)]</field>
         <field name="groups" eval="[Command.link(ref('stock.group_stock_user'))]"/>
     </record>
 
@@ -18,10 +18,49 @@
         <field name="model_id" ref="stock.model_stock_picking_type"/>
         <field name="active" eval="True"/>
         <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('warehouse_id.allowed_user_ids', 'in', user.id)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_user'))]"/>
+    </record>
+
+    <record id="stock_location_access_user" model="ir.rule">
+        <field name="name">Stock Location Access: User</field>
+        <field name="model_id" ref="stock.model_stock_location"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
         <field name="perm_create" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">[('warehouse_id', 'in', user.allowed_warehouse_ids.ids)]</field>
+        <!-- Allow to see virtual locations, e.g., 'Physical Locations' , 'Partners', etc.
+             by `adding warehouse_id = False`
+             Useful for example when making a product replenishment. -->
+        <field name="domain_force">['|', ('warehouse_id.allowed_user_ids', 'in', user.id), ('warehouse_id', '=', False)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_user'))]"/>
+    </record>
+
+    <record id="stock_orderpoint_access_user" model="ir.rule">
+        <field name="name">Stock Orderpoint Access: User</field>
+        <field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[('warehouse_id.allowed_user_ids', 'in', user.id)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_user'))]"/>
+    </record>
+
+    <record id="stock_quant_access_user" model="ir.rule">
+        <field name="name">Stock Quant Access: User</field>
+        <field name="model_id" ref="stock.model_stock_quant"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[('warehouse_id.allowed_user_ids', 'in', user.id)]</field>
         <field name="groups" eval="[Command.link(ref('stock.group_stock_user'))]"/>
     </record>
 
@@ -33,7 +72,55 @@
         <field name="perm_create" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_unlink" eval="True"/>
-        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_manager'))]"/>
+    </record>
+
+    <record id="stock_location_access_admin" model="ir.rule">
+        <field name="name">Stock Location Access: Admin</field>
+        <field name="model_id" ref="stock.model_stock_location"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_manager'))]"/>
+    </record>
+
+    <record id="stock_picking_access_admin" model="ir.rule">
+        <field name="name">Stock Picking Type Access: Admin</field>
+        <field name="model_id" ref="stock.model_stock_picking_type"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_manager'))]"/>
+    </record>
+
+    <record id="stock_orderpoint_access_admin" model="ir.rule">
+        <field name="name">Stock Orderpoint Access: Admin</field>
+        <field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[Command.link(ref('stock.group_stock_manager'))]"/>
+    </record>
+
+    <record id="stock_quant_access_admin" model="ir.rule">
+        <field name="name">Stock Quant Access: Admin</field>
+        <field name="model_id" ref="stock.model_stock_quant"/>
+        <field name="active" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[Command.link(ref('stock.group_stock_manager'))]"/>
     </record>
 </odoo>

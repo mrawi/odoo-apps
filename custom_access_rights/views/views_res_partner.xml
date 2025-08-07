@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="detailed_access_partner_ref_groups_form_view">
+        <field name="name">Partner Reference Groups Form View</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="ref" position="attributes">
+                <attribute name="groups">custom_access_rights.detailed_access_group_contact_ref</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Reduce dependencies by removing PoS related views. -->
+    <!--    <record model="ir.ui.view" id="detailed_access_partner_barcode_groups_form_view">-->
+    <!--        <field name="name">Partner Barcode Groups Form View</field>-->
+    <!--        <field name="model">res.partner</field>-->
+    <!--        <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <field name="barcode" position="attributes">-->
+    <!--                <attribute name="groups">custom_access_rights.detailed_access_group_contact_ref</attribute>-->
+    <!--            </field>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+</odoo>
