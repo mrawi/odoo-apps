@@ -15,13 +15,20 @@
     'author': "Mustafa Rawi",
     'website': "https://mrawi.com",
     'license': 'OPL-1',
-    'category': 'Sales/Sales',
+    'category': 'Hidden/Tools',
     'version': '17.0.1.0.3',
+    'price': 49.99,
+    'currency': 'EUR',
 
     'depends': ['sale', 'stock', 'account', 'purchase'],
     'data': [
         'security/ir_groups.xml',
         'views/views_product_template.xml',
         'views/views_res_partner.xml',
-    ]
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
 }
