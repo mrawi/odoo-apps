@@ -16,7 +16,7 @@
     'website': "https://mrawi.com",
     'license': 'OPL-1',
     'category': 'Sales/Sales',
-    'version': '16.0.1.0.3',
+    'version': '17.0.1.0.3',
 
     'depends': ['sale', 'stock', 'account', 'purchase'],
     'data': [

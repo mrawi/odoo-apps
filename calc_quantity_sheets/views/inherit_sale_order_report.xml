@@ -94,7 +94,7 @@
                     </t>
                     <tr>
                         <td> <strong>Total Sheets</strong></td>
-                        <td class="text-end"><span t-esc="total_sheets" /></td>
+                        <td class="text-end"><span t-out="total_sheets" /></td>
                     </tr>
                 </tbody>
             </table>
